@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
 html {
   line-height: 1.15;
@@ -8,7 +8,7 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Comic Neue", cursive;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -64,8 +64,8 @@ body {
   border-radius: 50%;
   border: 2px solid #e1ebfd;
   font-size: 5.5rem;
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 3.5rem;
+  height: 3.5rem;
   cursor: pointer;
   box-shadow: 2px 4px 10px #bfbcdb;
 
