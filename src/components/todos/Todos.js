@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { connect } from "react-redux";
-import { addTodos } from "../redux/reducer";
+import { addTodos } from "../../redux/reducer";
 import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
+import "./todos.scss";
 
 
 const mapStateToProps = (state) => {
@@ -37,7 +38,7 @@ const Todos = (props) => {
     }
   };
   const keyPress = (event) => {
-    if (event.which === 13) {
+    if (event.code === 'Enter') {
         add();
     }
 };

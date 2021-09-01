@@ -1,6 +1,6 @@
-import "./style/main.scss";
-import TodoForm from "./components/TodoForm";
-import Todos from "./components/Todos";
+import "./app.scss";
+import TodoForm from "../todoform/TodoForm";
+import Todos from "../todos/Todos";
 import React from 'react';
 
 
