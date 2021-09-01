@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import React from 'react';
 import { AiFillEdit } from "react-icons/ai";
 import { IoCheckmarkDoneSharp, IoClose } from "react-icons/io5";
+import "./todoitem.scss";
 
 
 
 const TodoItem = (props) => {
-  const { item, updateTodo, removeTodo, completeTodo } = props;
+  const { item, updateTodo } = props;
 
   const inputRef = useRef(true);
 
@@ -16,8 +17,8 @@ const TodoItem = (props) => {
     inputRef.current.focus();
   };
 
-  const update = (id, value, e) => {
-    if (e.which === 13) {
+  const update = (id, value, event) => {
+    if (event.charCode === 13) {
       updateTodo({ id, item: value });
       inputRef.current.disabled = true;
     }
@@ -35,21 +36,21 @@ const TodoItem = (props) => {
       />
       <div className="btns">
         <button
-          onClick={() => changeFocus()}
+          onClick={changeFocus}
         >
           <AiFillEdit />
         </button>
         {item.completed === false && (
           <button
             style={{ color: "green" }}
-            onClick={() => completeTodo(item.id)}
+            onClick={props.completeTodo.bind(this, item.id)}
           >
             <IoCheckmarkDoneSharp />
           </button>
         )}
         <button
           style={{ color: "red" }}
-          onClick={() => removeTodo(item.id)}
+          onClick={props.removeTodo.bind(this, item.id)}
         >
           <IoClose />
         </button>
@@ -61,9 +62,9 @@ const TodoItem = (props) => {
 
 TodoItem.propTypes = {
 
-  updateTodo: PropTypes.func,
-  removeTodo: PropTypes.func,
-  completeTodo: PropTypes.func,
+  updateTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
+  completeTodo: PropTypes.func.isRequired,
 }
 
 

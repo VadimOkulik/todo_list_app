@@ -5,9 +5,10 @@ import {
   completeTodos,
   removeTodos,
   updateTodos,
-} from "../redux/reducer";
-import TodoItem from "./TodoItem";
+} from "../../redux/reducer";
+import TodoItem from "../todoitem/TodoItem";
 import React from 'react';
+import "./todoform.scss";
 
 
 
@@ -26,14 +27,16 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+
+
 const TodoForm = (props) => {
   const [sort, filter] = useState("active");
   return (
     <div className="todoform">
       <div className="buttons">
-        <button title="Task Active!" onClick={() => filter("active")}>Active</button>
-        <button title="Task Completed!" onClick={() => filter("completed")}>Completed</button>
-        <button title="ALL Tasks!" onClick={() => filter("all")}>All</button>
+        <button title="Task Active!" onClick={filter.bind(this, "active")}>Active</button>
+        <button title="Task Completed!" onClick={filter.bind(this, "completed")}>Completed</button>
+        <button title="ALL Tasks!" onClick={filter.bind(this, "all")}>All</button>
       </div>
       <ul>
 
